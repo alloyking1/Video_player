@@ -14,6 +14,7 @@
 
         <!-- custome css -->
         <link rel="stylesheet" href="asset/css/custom.css">
+        <script async="" src="pathToJSLibraryContainingSimpleImageMethod.js"></script>
     </head>
    
     <body>
@@ -52,17 +53,19 @@
 
             //validate video file type
             if(File.type == "video/mp4"){
-                file.Move("C:\\wamp\\");
-                alert("file moved succcessfully")
+                
+                //moving file
+                var object = new ActiveXObject("Scripting.FileSystemObject");
+                var file = object.GetFile(File);
+                file.Move("C:\\asset\video");
+                alert("File is moved successfully");
+
+                // var img = new SimpleImage(File);
+                // image.drawTo(imgcanvas);
+
             }else{
                 alert("File must be an mp4 video format");
-            }
-            console.log(File.type); 
-
-            // var object = new ActiveXObject("Scripting.FileSystemObject");
-            // var file = object.GetFile("C:\\wamp\\www\\phptest.php");
-            // file.Move("C:\\wamp\\");
-            // document.write("File is moved successfully");
+            }    
         }
 
         
