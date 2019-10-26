@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Video Player</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+
+        <!-- jquery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+        <!-- custome css -->
+        <link rel="stylesheet" href="asset/css/custom.css">
+    </head>
+   
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="header">
+                        <h1>Media Player</h1>
+                        <p>Select a Video file to play</p>
+
+                        <form method="POST" enctype="multipart/form-data" onsubmit="return false" id="videoForm">
+                            <div class="form-group">
+                                <input type="file" id="video" class="btn btn-primary">
+                            </div>
+                            <button type="button" id="FormBtn" class="btn btn-primary" onclick="moveFile()">play Video</button>
+                        </form>
+
+                        <br>
+                        <video src="asset/video/test.mp4" width="640px" height="380px" autoplay controls></video>
+                       
+                    </div>      
+                </div>
+            </div>
+            <br>
+        </div>
+    </body>
+
+    <script>
+        
+        // javascript function to move file to folder
+        function moveFile(){
+            
+            //get file 
+            let Content = document.getElementById("video");
+            let File = Content.files[0];
+
+            //validate video file type
+            if(File.type == "video/mp4"){
+                file.Move("C:\\wamp\\");
+                alert("file moved succcessfully")
+            }else{
+                alert("File must be an mp4 video format");
+            }
+            console.log(File.type); 
+
+            // var object = new ActiveXObject("Scripting.FileSystemObject");
+            // var file = object.GetFile("C:\\wamp\\www\\phptest.php");
+            // file.Move("C:\\wamp\\");
+            // document.write("File is moved successfully");
+        }
+
+        
+    </script>
+</html>
